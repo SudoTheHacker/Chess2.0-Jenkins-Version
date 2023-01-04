@@ -38,9 +38,10 @@ while (x != 8)
       last = 1;
     } else 
     {
+      div.style.backgroundColor = "black";
       last = 0;
     }
-    div.id = "pos" + (((x*8)+y)+1)
+    div.id = "pos-" + (((x*8)+y)+1)
     board.appendChild(div);
     y++;
   }
@@ -72,7 +73,7 @@ y=0;
  */
 
 
-const startpos_str = '"BR""BM""BF""BQ""BKB""BF""BM""BR"/"BF""BF""BE""BF""BF""BE""BF""BF"////"WF""WF""WE""WF""WF""WE""WF""WF"/"WR""WM""WF""WQ""WKB""WF""WM""WR"';
+const startpos_str = '"BR""BM""BF""BQ""BKB""BF""BM""BR""BF""BF""BE""BF""BF""BE""BF""BF"////"WF""WF""WE""WF""WF""WE""WF""WF"WR""WM""WF""WQ""WKB""WF""WM""WR"';
 let startpos_arr=startpos_str.split('"');
 let startpos_arr_lenght = startpos_arr.length;
 let startpos = {};
@@ -125,15 +126,87 @@ var div = document.createElement("div");
 while(x != startpos_len)
 {
   console.log(startpos);
+  var space = 0;
   var imgPiece = document.createElement("img");
   switch(startpos[x])
   {
     case "BR":
-      imgPiece.src = "."
-       let img=document.getElementById('pos' + x);
-       img.appendChild(imgPiece);
+      imgPiece.src = "./Pieces/Black/Black Rook.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+space+1}`)?.appendChild(imgPiece);
+      break;
+    case "BM":
+      imgPiece.src = "./Pieces/Black/Black Monkey.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+space+1}`)?.appendChild(imgPiece);
+      break;
+    case "BF":
+      imgPiece.src = "./Pieces/Black/Black Fish.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+space+1}`)?.appendChild(imgPiece);
+      break;
+    case "BQ":
+      imgPiece.src = "./Pieces/Black/Black Queen.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+1+space}`)?.appendChild(imgPiece);
+      break;
+    case "BKB":
+      imgPiece.src = "./Pieces/Black/Black King Banana.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+1+space}`)?.appendChild(imgPiece);
+      break;
+    case "BE":
+      imgPiece.src = "./Pieces/Black/Black Elephant.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+1+space}`)?.appendChild(imgPiece);
+      break;
+    case "BBK":
+      imgPiece.src = "./Pieces/Black/Black King.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+1+space}`)?.appendChild(imgPiece);
+      break;
+    case "WR":
+      imgPiece.src = "./Pieces/White/White Rook.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+1+space}`)?.appendChild(imgPiece);
+      break;
+    case "WE":
+      imgPiece.src = "./Pieces/White/White Elephant.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+1+space}`)?.appendChild(imgPiece);
+      break;
+    case "WF":
+      imgPiece.src = "./Pieces/White/White Fish.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+1+space}`)?.appendChild(imgPiece);
+      break;
+    case "WKB":
+      imgPiece.src = "./Pieces/White/White King Banana.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+1+space}`)?.appendChild(imgPiece);
+      break;
+    case "WBK":
+      imgPiece.src = "./Pieces/White/White King.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+1+space}`)?.appendChild(imgPiece);
+      break;
+    case "WM":
+      imgPiece.src = "./Pieces/White/White Monkey.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+1+space}`)?.appendChild(imgPiece);
+      break;
+    case "WQ":
+      imgPiece.src = "./Pieces/White/White Queen.png"
+      imgPiece.width = board.clientWidth/9.5
+      document.getElementById(`pos-${x+1+space}`)?.appendChild(imgPiece);
+      break;
+    case "/":
+      space=16;
+      alert(space);
+      break;
     default:
-      // alert("Startpos contain errors")
+      alert("Startpos contain errors")
+      break;
   }
   x++;
 }

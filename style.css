@@ -18,3 +18,10 @@ body
   flex-wrap: wrap;
   border: 3px solid rgb(60,180,60); 
 }
+#board div img
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+}
